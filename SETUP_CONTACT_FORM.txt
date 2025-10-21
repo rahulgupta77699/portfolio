@@ -1,0 +1,22 @@
+========================================
+CONTACT FORM SETUP - TAKES 30 SECONDS
+========================================
+
+1. Open browser and go to: https://web3forms.com
+
+2. Enter email address: sera4tech@gmail.com
+
+3. Click "Create Access Key" button
+
+4. Copy the Access Key that appears
+
+5. Open file: .env.local
+
+6. Replace "your_access_key_here" with your actual access key:
+   VITE_WEB3FORMS_ACCESS_KEY=paste_your_key_here
+
+7. Check sera4tech@gmail.com inbox and verify the email
+
+8. Restart dev server (Ctrl+C and run: npm run dev)
+
+DONE! Contact form will now send emails to sera4tech@gmail.com
