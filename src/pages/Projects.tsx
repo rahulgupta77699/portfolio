@@ -4,17 +4,20 @@ const projects = [{
   title: 'AI-Based Aircraft Maintenance Predictor',
   description: 'A machine learning system that predicts aircraft maintenance needs by analyzing operational data, reducing downtime and improving safety.',
   image: 'https://images.unsplash.com/photo-1436491865332-7a61a109cc05?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-  tags: ['Machine Learning', 'Python', 'Predictive Analytics', 'Aviation']
+  tags: ['Machine Learning', 'Python', 'Predictive Analytics', 'Aviation'],
+  url: null
 }, {
   title: 'FRA Atlas WebGIS System',
   description: 'An interactive web-based geographic information system for forest resource assessment, enabling data visualization and analysis.',
   image: 'https://images.unsplash.com/photo-1441974231531-c6227db76b6e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-  tags: ['GIS', 'Web Development', 'Data Visualization', 'Forestry']
+  tags: ['GIS', 'Web Development', 'Data Visualization', 'Forestry'],
+  url: 'https://fra1.onrender.com'
 }, {
   title: 'Cybercrime Predictive Framework',
   description: 'An AI framework that analyzes patterns to predict and prevent potential cybersecurity threats before they occur.',
   image: 'https://images.unsplash.com/photo-1563013544-824ae1b704d3?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80',
-  tags: ['Cybersecurity', 'AI', 'Threat Detection', 'Data Analysis']
+  tags: ['Cybersecurity', 'AI', 'Threat Detection', 'Data Analysis'],
+  url: null
 }];
 const Projects = () => {
   const [activeProject, setActiveProject] = useState(0);
@@ -55,9 +58,20 @@ const Projects = () => {
                     {tag}
                   </span>)}
               </div>
-              <a href="#" className="inline-flex items-center text-blue-600 font-medium hover:underline">
-                View Project <ChevronRightIcon size={16} className="ml-1" />
-              </a>
+              {projects[activeProject].url ? (
+                <a 
+                  href={projects[activeProject].url} 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center text-blue-600 font-medium hover:underline"
+                >
+                  View Project <ChevronRightIcon size={16} className="ml-1" />
+                </a>
+              ) : (
+                <span className="inline-flex items-center text-gray-400 font-medium cursor-not-allowed">
+                  Coming Soon <ChevronRightIcon size={16} className="ml-1" />
+                </span>
+              )}
             </div>
             {/* Project Navigation */}
             <div className="mt-12 flex space-x-4">

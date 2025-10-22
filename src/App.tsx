@@ -7,6 +7,7 @@ import Projects from './pages/Projects';
 import Services from './pages/Services';
 import Contact from './pages/Contact';
 import Footer from './components/Footer';
+import ThunderstormEffect from './components/ThunderstormEffect';
 export function App() {
   const [theme, setTheme] = useState('light');
   useEffect(() => {
@@ -21,6 +22,7 @@ export function App() {
     document.documentElement.classList.toggle('dark', newTheme === 'dark');
   };
   return <div className="min-h-screen w-full animated-gradient-bg text-white">
+      <ThunderstormEffect />
       <Navbar theme={theme} toggleTheme={toggleTheme} />
       <main>
         <Hero />

@@ -24,43 +24,36 @@ const ContactForm = () => {
     setIsSubmitting(true);
     setError('');
 
-    // Get access key from environment
-    const accessKey = import.meta.env.VITE_WEB3FORMS_ACCESS_KEY;
-    
-    if (!accessKey || accessKey === 'your_access_key_here' || accessKey === 'YOUR_ACTUAL_ACCESS_KEY') {
-      setError('Please configure Web3Forms. Visit https://web3forms.com to get free access key.');
-      setIsSubmitting(false);
-      return;
-    }
-
     try {
-      const response = await fetch('https://api.web3forms.com/submit', {
+      // Using Formsubmit.co - completely free, no signup needed
+      const response = await fetch('https://formsubmit.co/ajax/sera4tech@gmail.com', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
+          'Accept': 'application/json'
         },
         body: JSON.stringify({
-          access_key: accessKey,
-          email: formData.email,
           name: formData.name,
+          email: formData.email,
           message: formData.message,
-          from_name: 'SERA4tech Contact Form',
-          subject: `New message from ${formData.name}`,
-        }),
+          _subject: `New Contact from ${formData.name}`,
+          _captcha: 'false',
+          _template: 'table'
+        })
       });
 
       const result = await response.json();
-
-      if (result.success) {
+      
+      if (response.ok && result.success) {
         setSubmitted(true);
         setFormData({ name: '', email: '', message: '' });
         setTimeout(() => { setSubmitted(false); }, 5000);
       } else {
-        setError(result.message || 'Failed to send message. Please try again.');
+        throw new Error('Failed to send');
       }
     } catch (err: any) {
       console.error('Form submission error:', err);
-      setError('Failed to send message. Please try again.');
+      setError('Failed to send message. Please try again or email us directly at sera4tech@gmail.com');
     } finally {
       setIsSubmitting(false);
     }

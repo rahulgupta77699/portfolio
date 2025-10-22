@@ -50,16 +50,16 @@ const Hero = () => {
               transition-all duration-700 transform ${isSubtextVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
               Innovating Ideas into Intelligent Solutions
             </p>
-            <div className={`mt-12 flex flex-col sm:flex-row justify-center lg:justify-start gap-4
+            <div className={`mt-12 flex flex-col sm:flex-row justify-center lg:justify-start gap-4 relative z-[60]
               transition-all duration-700 delay-300 transform ${isSubtextVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
               <button onClick={() => document.getElementById('contact')?.scrollIntoView({
               behavior: 'smooth'
-            })} className="px-8 py-3 rounded-lg bg-white/20 backdrop-blur-md border border-white/30 text-white font-medium shadow-lg hover:shadow-xl hover:bg-white/30 transition-all hover:scale-105 transform">
+            })} className="relative z-[60] px-8 py-4 rounded-lg bg-gradient-to-r from-blue-600 to-purple-600 backdrop-blur-md border-2 border-white/40 text-white font-semibold text-lg shadow-xl hover:shadow-2xl hover:from-blue-500 hover:to-purple-500 transition-all hover:scale-110 transform">
                 Get in Touch
               </button>
               <button onClick={() => document.getElementById('projects')?.scrollIntoView({
               behavior: 'smooth'
-            })} className="px-8 py-3 rounded-lg border-2 border-white/40 text-white font-medium hover:bg-white/20 backdrop-blur-md transition-all transform hover:scale-105">
+            })} className="relative z-[60] px-8 py-4 rounded-lg bg-white/90 text-gray-900 font-semibold text-lg shadow-xl hover:shadow-2xl hover:bg-white transition-all transform hover:scale-110">
                 View Our Work
               </button>
             </div>
@@ -75,10 +75,10 @@ const Hero = () => {
           </div>
         </div>
       </div>
-      <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2">
-        <button onClick={scrollToAbout} className={`p-3 rounded-full bg-white/20 backdrop-blur-md border border-white/30 text-white shadow-md hover:shadow-lg hover:bg-white/30
-          transition-all duration-1000 delay-1000 ${isSubtextVisible ? 'opacity-100 animate-bounce' : 'opacity-0'}`} aria-label="Scroll down">
-          <ChevronDownIcon size={24} />
+      <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2 z-[60]">
+        <button onClick={scrollToAbout} className={`relative z-[60] text-white hover:text-blue-400
+          transition-all duration-1000 delay-1000 ${isSubtextVisible ? 'opacity-100 animate-bounce' : 'opacity-0'} hover:scale-125`} aria-label="Scroll down">
+          <ChevronDownIcon size={40} strokeWidth={3} />
         </button>
       </div>
     </section>;

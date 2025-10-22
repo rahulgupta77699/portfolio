@@ -1,0 +1,88 @@
+=====================================================
+CONTACT FORM SETUP - DO THIS NOW (3 MINUTES)
+=====================================================
+
+The contact form currently opens the email client as a fallback.
+To make it send emails directly, follow these steps:
+
+STEP 1: Create EmailJS Account
+-------------------------------
+1. Go to: https://dashboard.emailjs.com/sign-up
+2. Sign up with: sera4tech@gmail.com
+3. Verify your email
+
+STEP 2: Add Gmail Service
+--------------------------
+1. Go to: https://dashboard.emailjs.com/admin
+2. Click "Email Services" tab
+3. Click "Add New Service"
+4. Select "Gmail"
+5. Click "Connect Account"
+6. Log in with sera4tech@gmail.com
+7. Allow permissions
+8. You'll see a Service ID like "service_abc1234"
+9. COPY THIS SERVICE ID
+
+STEP 3: Create Email Template
+------------------------------
+1. Click "Email Templates" tab
+2. Click "Create New Template"
+3. Set template name: "Contact Form"
+4. Edit the template:
+
+   To Email: sera4tech@gmail.com
+   Subject: New Contact from {{from_name}}
+   
+   Content:
+   New message from your website!
+   
+   Name: {{from_name}}
+   Email: {{from_email}}
+   
+   Message:
+   {{message}}
+
+5. Click "Save"
+6. You'll see a Template ID like "template_xyz5678"
+7. COPY THIS TEMPLATE ID
+
+STEP 4: Get Public Key
+-----------------------
+1. Click "Account" in top menu
+2. Click "General" tab
+3. Find "Public Key" 
+4. You'll see something like: "A1B2C3D4E5F6G7H8I9"
+5. COPY THIS PUBLIC KEY
+
+STEP 5: Update Your Code
+-------------------------
+Open: src/components/ContactForm.tsx
+
+Find line 16 and replace:
+   emailjs.init('CKqW8ZYvB5wqDLW9m');
+With:
+   emailjs.init('YOUR_PUBLIC_KEY');
+
+Find lines 46-47 and replace:
+   'service_sera4tech',  // Service ID
+   'template_contact',   // Template ID
+With:
+   'YOUR_SERVICE_ID',    // Service ID
+   'YOUR_TEMPLATE_ID',   // Template ID
+
+STEP 6: Test It!
+----------------
+1. Save the file
+2. Restart dev server: npm run dev
+3. Fill out the contact form
+4. Click Send Message
+5. Check sera4tech@gmail.com inbox!
+
+=====================================================
+CURRENT FALLBACK:
+If EmailJS is not configured, clicking "Send Message"
+will open the user's default email client with a
+pre-filled message to sera4tech@gmail.com
+=====================================================
+
+FREE TIER: 200 emails/month - Perfect for your needs!
