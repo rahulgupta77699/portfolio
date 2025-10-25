@@ -5,7 +5,7 @@ const projects = [{
   description: 'A machine learning system that predicts aircraft maintenance needs by analyzing operational data, reducing downtime and improving safety.',
   image: 'https://images.unsplash.com/photo-1436491865332-7a61a109cc05?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
   tags: ['Machine Learning', 'Python', 'Predictive Analytics', 'Aviation'],
-  url: null
+  url: 'https://c3.ai/customers/enterprise-ai-for-aircraft-predictive-maintenance/?utm_source=chatgpt.com'
 }, {
   title: 'FRA Atlas WebGIS System',
   description: 'An interactive web-based geographic information system for forest resource assessment, enabling data visualization and analysis.',
@@ -17,7 +17,7 @@ const projects = [{
   description: 'An AI framework that analyzes patterns to predict and prevent potential cybersecurity threats before they occur.',
   image: 'https://images.unsplash.com/photo-1563013544-824ae1b704d3?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80',
   tags: ['Cybersecurity', 'AI', 'Threat Detection', 'Data Analysis'],
-  url: null
+  url: 'https://www.researchgate.net/publication/388851104_Developing_Predictive_Financial_Fraud_Models_Using_AI-Driven_Analytics_Within_Cybercrime-Resilient_Security_Ecosystems'
 }];
 const Projects = () => {
   const [activeProject, setActiveProject] = useState(0);
